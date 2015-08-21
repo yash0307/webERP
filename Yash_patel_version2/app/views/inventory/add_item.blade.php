@@ -1,0 +1,193 @@
+@extends('layouts.main')
+@section('content')
+@extends('includes/sidebar')
+<section class="">
+	<section class = "wrapper">
+	@include("errors.global_alert_messages")
+	<div class = "row" >
+	<div class = "col-lg-12">
+	<section class="panel">
+		<header class="panel-heading">
+			ADD ITEM
+		</header>
+		<div class="panel-body">
+			{{Form::open(array('url'=>'itemadded',"class" => "form-horizontal bucket-form"))}}
+			
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Item Code</label>
+				<div class="col-sm-4">
+				{{Form::text('item_code')}}
+				{{ $errors->first('item_code') }}
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Part Description</label>
+				<div class="col-sm-4">
+				{{Form::text('part_descriptions')}}
+				{{ $errors->first('part_descriptions') }}
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Bahasa Indonesia Description</label>
+				<div class="col-sm-4">
+				{{Form::text('bahasa_indonesia_description')}}
+				{{ $errors->first('bahasa_indonesia_description') }}
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Part Description</label>
+				<div class="col-sm-4">
+				{{Form::textarea('part_description')}}
+				{{ $errors->first('part_description') }}
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Image File</label>
+				<div class="col-sm-4">
+				{{Form::file('image_file')}}
+				{{ $errors->first('image_file') }}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Category</label>
+				<div class="col-sm-4">
+				{{ Form::select('category', $name)}}
+				{{ $errors->first('category') }}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Economic Order Quantity</label>
+				<div class="col-sm-4">
+				{{Form::input('number','economic_order_quantity')}}
+				{{ $errors->first('economic_order_quantity') }}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Packaged Volume</label>
+				<div class="col-sm-4">
+				{{Form::input('number','packaged_volume')}}
+				{{ $errors->first('packaged_volume') }}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Packaged Gross Weight</label>
+				<div class="col-sm-4">
+				{{Form::input('number','packaged_gross_weight')}}
+				{{ $errors->first('packaged_gross_weight') }}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Net Weight</label>
+				<div class="col-sm-4">
+				{{Form::input('number','net_weight')}}
+				{{ $errors->first('net_weight') }}
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Units of Measure</label>
+				<div class="col-sm-4">
+				{{Form::select('units_of_measure',array('meters'=>'meters',
+							'kg'=>'kg',
+							'litres'=>'litres',
+							'inch'=>'inch',
+							'feet'=>'feet'))}}
+				{{ $errors->first('units_of_measure') }}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Assembly, Kit, Manufactured or Service/Labour</label>
+				<div class="col-sm-4">
+				{{Form::select('assembly_kit',array('Assembly'=>'Assembly',
+							'Kit'=>'Kit',
+							'Manufactured'=>'Manufactured',
+							'Purchased'=>'Purchased',
+							'Service/Labour'=>'Service/Labour',
+							'Phantom'=>'Phantom'))}}
+				{{ $errors->first('assembly_kit') }}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Current or Obsolete</label>
+				<div class="col-sm-4">
+				{{Form::select('current_or_obsolete',array('Current'=>'Current',
+							'Obsolete'=>'Obsolete'))}}
+				{{ $errors->first('current_or_obsolete') }}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Batch, Serial or Lot Control</label>
+				<div class="col-sm-4">
+				{{Form::select('batch_serial_or_lot_control',array('No Control'=>'No Control',
+							'Controlled'=>'Controlled'))}}
+				{{ $errors->first('batch_serial_or_lot_control') }}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Serialised (Note, this has no effect if the item is not Controlled)</label>
+				<div class="col-sm-4">
+				{{Form::select('serialised',array('YES'=>'YES',
+							'NO'=>'NO'))}}
+				{{ $errors->first('serialised') }}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Perishable</label>
+				<div class="col-sm-4">
+				{{Form::select('perishable',array('YES'=>'YES',
+							'NO'=>'NO'))}}
+				{{ $errors->first('perishable') }}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Decimal Places for display Quantity</label>
+				<div class="col-sm-4">
+				{{Form::input('number','decimal_places_for_display_quantity')}}
+				{{ $errors->first('decimal_places_for_display_quantity') }}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Bar Code</label>
+				<div class="col-sm-4">
+				{{Form::text('bar_code')}}
+				{{ $errors->first('bar_code') }}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Discount Category</label>
+				<div class="col-sm-4">
+				{{Form::text('discount_category')}}
+				{{ $errors->first('discount_category') }}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Pan Size</label>
+				<div class="col-sm-4">
+				{{Form::input('number','pan_size')}}
+				{{ $errors->first('pan_size') }}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Shrinkage Factor</label>
+				<div class="col-sm-4">
+				{{Form::input('number','shrinkage_factor')}}
+				{{ $errors->first('shrinkage_factor') }}
+				</div>
+			</div>
+
+			<div class="pull-right">
+				{{link_to('system','Cancel',array("class"=>"btn btn-danger"))}}
+			{{Form::submit('Update',array("class"=>"btn btn-success"))}}
+			</div>
+			{{Form::close()}}
+		</div>
+	</section>
+	</div>
+	</div>
+	</section>
+</section>
+@stop

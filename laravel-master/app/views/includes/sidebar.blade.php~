@@ -1,0 +1,21 @@
+<aside>
+        <div id="sidebar" class="nav-collapse">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a class="active" href="system">
+                        <i class="fa fa-bar-chart-o"></i>
+                        <span>SYSTEM</span>
+                    </a>
+                </li>
+                <li>
+                    <a class = "active" href="inventory/sales_categories">
+                        <i class="fa fa-sun-o"></i>
+                        <span>INVENTORY</span>
+                    </a>
+                </li>
+                <li>
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+</aside>
